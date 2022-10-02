@@ -1,1 +1,7 @@
-<p>countries works!</p>
+<h2>List of available countries</h2>
+<ul>
+  <li *ngFor="let country of countries">
+      <span >{{country.countryId}}</span>
+      <span >{{country.countryName}}</span>
+  </li>
+</ul>
