@@ -12,6 +12,7 @@ export class CountriesComponent implements OnInit {
 
   countries = COUNTRIES;
   filteredCountries = this.countries;
+  selectedCountry?: Country;
 
   private _filter = "";
 
@@ -34,6 +35,15 @@ export class CountriesComponent implements OnInit {
 
   filterCountries() {
     return this.countries.filter((country: Country) => country.countryName.toLocaleLowerCase().includes(this.filter.toLocaleLowerCase()));
+  }
+
+  selectCountry(value: Country) {
+    this.selectedCountry = value;
+  }
+
+  resetSelectedCountry() {
+    console.log('in resetSelectedCountry');
+    this.selectedCountry = undefined;
   }
 
 }

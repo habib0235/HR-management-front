@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Country } from '../model/country';
 
 @Component({
@@ -7,9 +7,11 @@ import { Country } from '../model/country';
   styleUrls: ['./country.component.css']
 })
 export class CountryComponent implements OnInit {
-  country: Country = {
+
+  @Input() country: Country = {
     countryId: "1",
-    countryName: 'Tunisia'
+    countryName: 'Tunisia',
+    countryRegion: { regionId: "2", regionName: "Africa" }
   };
 
   constructor() { }

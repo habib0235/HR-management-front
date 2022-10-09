@@ -1,6 +1,6 @@
 <h2>List of available countries</h2>
 
-<input type="text" [(ngModel)]="filter" />
+<input type="text" [(ngModel)]="filter" (input)="resetSelectedCountry()"/>
 
 <h3>Filter text : {{filter}}</h3>
 
@@ -12,9 +12,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let country of filteredCountries">
+    <tr *ngFor="let country of filteredCountries" (click) = "selectCountry(country)">
       <td>{{country.countryId}}</td>
       <td>{{country.countryName}}</td>
     </tr>
   </tbody>
 </table>
+
+<hr-country *ngIf="selectedCountry" [country]="selectedCountry"></hr-country>
